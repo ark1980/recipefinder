@@ -13,7 +13,9 @@ class SearchRecipies extends Component {
     search() {
         let { ingredients, dish } = this.state;
         const url = `http://www.recipepuppy.com/api/?i=${ingredients}&q=${dish}`;
-        console.log('url', url, 'state', this.state);
+        fetch(url)
+            .then(recipe => recipe.json())
+            .then(data => console.log('data ===>', data))
     }
 
 
